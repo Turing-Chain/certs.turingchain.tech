@@ -1,5 +1,4 @@
 /* eslint-disable */
-const withTypescript = require('@zeit/next-typescript');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const withCSS = require('@zeit/next-css');
@@ -42,117 +41,113 @@ function exportWithLocalePath(config) {
 }
 
 module.exports = withBundleAnalyzer(
-  withTypescript(
-    withCSS(
-      withOptimizedImages({
-        exportPathMap: function() {
-          const pathConfig = {
-            '/': { page: '/', query: { lng: defaultLng } },
-            '/product': {
-              page: '/product',
-              query: { lng: defaultLng, id: '' },
-            },
-            '/ipfs': { page: '/ipfs', query: { lng: defaultLng, hash: '' } },
-            '/auth/login': {
-              page: '/auth/login',
-              query: { lng: defaultLng, mode: '' },
-            },
-            '/issuer': { page: '/issuer', query: { lng: '', id: '' } },
-            '/issuer/issue-cert/1': {
-              page: '/issuer/issue-cert/[page]',
-              query: { lng: defaultLng, page: '1' },
-            },
-            '/issuer/issue-cert/2': {
-              page: '/issuer/issue-cert/[page]',
-              query: { lng: defaultLng, page: '2' },
-            },
-          };
-
-          return process.env.NODE_ENV === 'development'
-            ? pathConfig
-            : exportWithLocalePath(pathConfig);
-        },
-        assetPrefix: GITHUB ? `/${PROJ_NAME}/` : '',
-        analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
-        analyzeBrowser: ['browser', 'both'].includes(
-          process.env.BUNDLE_ANALYZE,
-        ),
-        bundleAnalyzerConfig: {
-          server: {
-            analyzerMode: 'static',
-            reportFilename: '../bundles/server.html',
+  withCSS(
+    withOptimizedImages({
+      exportPathMap: function() {
+        const pathConfig = {
+          '/': { page: '/', query: { lng: defaultLng } },
+          '/product': {
+            page: '/product',
+            query: { lng: defaultLng, id: '' },
           },
-          browser: {
-            analyzerMode: 'static',
-            reportFilename: '../bundles/client.html',
+          '/ipfs': { page: '/ipfs', query: { lng: defaultLng, hash: '' } },
+          '/auth/login': {
+            page: '/auth/login',
+            query: { lng: defaultLng, mode: '' },
           },
-        },
+          '/issuer': { page: '/issuer', query: { lng: '', id: '' } },
+          '/issuer/issue-cert/1': {
+            page: '/issuer/issue-cert/[page]',
+            query: { lng: defaultLng, page: '1' },
+          },
+          '/issuer/issue-cert/2': {
+            page: '/issuer/issue-cert/[page]',
+            query: { lng: defaultLng, page: '2' },
+          },
+        };
 
-        // next-images: default values
-        // but you can overwrite them here with any valid value you want.
-        inlineImageLimit: 8192,
-        imagesFolder: 'images',
-        imagesName: '[name]-[hash].[ext]',
-        handleImages: ['jpeg', 'png', 'svg', 'webp', 'gif'],
-        optimizeImages: true,
-        optimizeImagesInDev: false,
-        mozjpeg: {
-          quality: 80,
+        return process.env.NODE_ENV === 'development'
+          ? pathConfig
+          : exportWithLocalePath(pathConfig);
+      },
+      assetPrefix: GITHUB ? `/${PROJ_NAME}/` : '',
+      analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
+      analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
+      bundleAnalyzerConfig: {
+        server: {
+          analyzerMode: 'static',
+          reportFilename: '../bundles/server.html',
         },
-        optipng: {
-          optimizationLevel: 3,
+        browser: {
+          analyzerMode: 'static',
+          reportFilename: '../bundles/client.html',
         },
-        pngquant: false,
-        gifsicle: {
-          interlaced: true,
-          optimizationLevel: 3,
-        },
-        svgo: {
-          plugins: [{ removeComments: true }],
-        },
-        webp: {
-          preset: 'default',
-          quality: 75,
-        },
-        responsive: {
-          placeholder: true,
-        },
+      },
 
-        webpack: (config, { isServer, buildId, dev }) => {
-          config.plugins = config.plugins || [];
-          config.resolve.extensions = config.resolve.extensions.concat([
-            '.mjs',
-            '.less',
-          ]);
+      // next-images: default values
+      // but you can overwrite them here with any valid value you want.
+      inlineImageLimit: 8192,
+      imagesFolder: 'images',
+      imagesName: '[name]-[hash].[ext]',
+      handleImages: ['jpeg', 'png', 'svg', 'webp', 'gif'],
+      optimizeImages: true,
+      optimizeImagesInDev: false,
+      mozjpeg: {
+        quality: 80,
+      },
+      optipng: {
+        optimizationLevel: 3,
+      },
+      pngquant: false,
+      gifsicle: {
+        interlaced: true,
+        optimizationLevel: 3,
+      },
+      svgo: {
+        plugins: [{ removeComments: true }],
+      },
+      webp: {
+        preset: 'default',
+        quality: 75,
+      },
+      responsive: {
+        placeholder: true,
+      },
 
-          config.plugins = [
-            ...config.plugins,
+      webpack: (config, { isServer, buildId, dev }) => {
+        config.plugins = config.plugins || [];
+        config.resolve.extensions = config.resolve.extensions.concat([
+          '.mjs',
+          '.less',
+        ]);
 
-            // Read the .env file
-            new Dotenv({
-              path: path.join(__dirname, '.env'),
-              systemvars: true,
-            }),
-          ];
+        config.plugins = [
+          ...config.plugins,
 
-          const originalEntry = config.entry;
-          config.entry = async () => {
-            const entries = await originalEntry();
+          // Read the .env file
+          new Dotenv({
+            path: path.join(__dirname, '.env'),
+            systemvars: true,
+          }),
+        ];
 
-            if (
-              entries['main.js'] &&
-              !entries['main.js'].includes('./polyfill.js')
-            ) {
-              entries['main.js'].unshift('./polyfill.js');
-            }
+        const originalEntry = config.entry;
+        config.entry = async () => {
+          const entries = await originalEntry();
 
-            return entries;
-          };
+          if (
+            entries['main.js'] &&
+            !entries['main.js'].includes('./polyfill.js')
+          ) {
+            entries['main.js'].unshift('./polyfill.js');
+          }
 
-          return config;
-        },
-        publicRuntimeConfig,
-      }),
-    ),
+          return entries;
+        };
+
+        return config;
+      },
+      publicRuntimeConfig,
+    }),
   ),
 );
