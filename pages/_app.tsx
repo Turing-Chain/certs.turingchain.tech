@@ -16,16 +16,6 @@ Modal.setAppElement('#__next');
 const DEFAULT_LANG = 'zh-TW';
 
 class MyApp extends App<{ router: { query: { lng: string } } }> {
-  static async getInitialProps({ Component, ctx }: any) {
-    let pageProps = {};
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-
-    return { pageProps };
-  }
-
   getUserLanguage = (defaultLang: string = DEFAULT_LANG): string => {
     // 1st see path query(from server or exportPathMap)
     if (this.props.router.query.lng) {

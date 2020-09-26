@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetInitialProps, NextContext } from 'next';
+import { GetInitialProps, NextPageContext } from 'next';
 import { UserContext } from '@/contexts/user';
 import isFunction from 'lodash/isFunction';
 import { Router } from '@/i18n';
@@ -12,7 +12,7 @@ function withAuth<P = {}>(
     class WithAuthComponent extends React.Component<P> {
       static contextType = UserContext;
 
-      static getInitialProps(ctx: NextContext) {
+      static getInitialProps(ctx: NextPageContext) {
         if (getInitialProps) {
           return isFunction(getInitialProps)
             ? getInitialProps(ctx)
@@ -31,7 +31,7 @@ function withAuth<P = {}>(
         //   <Component {...this.props} />
         // ) : null;
 
-        return <Component {...this.props} />
+        return <Component {...this.props} />;
       }
     };
 }
