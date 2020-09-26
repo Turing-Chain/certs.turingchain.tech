@@ -1,8 +1,11 @@
 sudo: false
 language: node_js
 node_js:
-- '8.10.0'
-cache: yarn
+- '10.13.0'
+cache: 
+  - $HOME/.cache/yarn
+  - node_modules
+  - .next/cache
 branches:
   only:
   - master
