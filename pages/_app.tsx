@@ -52,9 +52,9 @@ class MyApp extends App<{ router: { query: { lng: string } } }> {
       setTimeout(() => i18n.changeLanguage(lang), 0);
     }
 
-    Router.onRouteChangeComplete = (url: string) => {
+    Router.events.on('routeChangeComplete', (url: string) => {
       trackPageView(url);
-    };
+    });
   }
 
   render() {
