@@ -27,7 +27,7 @@ const CertsNull: FC<TMyCertsRenderComponentProps> = () => {
   const { t } = useTranslation(i18nNamespace.Issuer);
   return (
     <Wrapper>
-      <NUllImg src={require('../../static/bg/bg-certs-empty.svg')} />
+      <NUllImg src={require('../../public/static/bg/bg-certs-empty.svg')} />
       <p>{t('Issue.notice.0')}</p>
       <p>{t('Issue.notice.1')}</p>
       <StyledButton

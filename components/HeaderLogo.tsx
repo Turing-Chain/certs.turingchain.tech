@@ -5,8 +5,8 @@ import { scrollToID } from '@/utils';
 import { media } from '@/utils/theme';
 import { Router } from '@/i18n';
 
-import DarkWhiteLogo from '@/static/logo/logo-new-dark-white.svg';
-import PrimaryWhiteLogo from '@/static/logo/logo-new-white.svg';
+import DarkWhiteLogo from '@/public/static/logo/logo-new-dark-white.svg';
+import PrimaryWhiteLogo from '@/public/static/logo/logo-new-white.svg';
 
 const LogoWrapper = styled.div`
   cursor: pointer;
@@ -49,7 +49,7 @@ const HeaderLogo: FC<{ mode?: 'primary' | 'dark'; onClick: () => void }> = ({
       <p className="en">
         {/* <a href={'http://certs.turingchain.tech'}> */}
         TuringCerts
-      {/* </a> */}
+        {/* </a> */}
       </p>
     </LogoWrapper>
   );

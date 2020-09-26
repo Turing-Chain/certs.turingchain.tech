@@ -27,7 +27,7 @@ const CertsNull: FC<TMyCertsRenderComponentProps> = ({ openModal }) => {
 
   return (
     <Wrapper>
-      <NUllImg src={require('../../static/bg/bg-certs-empty.svg')} />
+      <NUllImg src={require('../../public/static/bg/bg-certs-empty.svg')} />
       <p>{t('Null.notice0')}</p>
       <p>{t('Null.notice1')}</p>
       <StyledButton mode="white" onClick={openModal}>

@@ -140,52 +140,52 @@ const LazyImage = styled(LazyLoadImage)`
 
 const certificates: TData[] = [
   {
-    preSrc: require('../../static/certificate/GBP.png?lqip'),
-    src: require('../../static/certificate/GBP.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
+    preSrc: require('../../public/static/certificate/GBP.png?lqip'),
+    src: require('../../public/static/certificate/GBP.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
   },
   {
-    preSrc: require('../../static/certificate/flowchain.png?lqip'),
-    src: require('../../static/certificate/flowchain.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
+    preSrc: require('../../public/static/certificate/flowchain.png?lqip'),
+    src: require('../../public/static/certificate/flowchain.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
   },
   {
-    preSrc: require('../../static/certificate/AngelHackCerts.png?lqip'),
-    src: require('../../static/certificate/AngelHackCerts.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
+    preSrc: require('../../public/static/certificate/AngelHackCerts.png?lqip'),
+    src: require('../../public/static/certificate/AngelHackCerts.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
   },
   {
-    preSrc: require('../../static/certificate/IOTA_Dominik.png?lqip'),
-    src: require('../../static/certificate/IOTA_Dominik.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
+    preSrc: require('../../public/static/certificate/IOTA_Dominik.png?lqip'),
+    src: require('../../public/static/certificate/IOTA_Dominik.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
   },
   {
-    preSrc: require('../../static/certificate/ABC_Crypto_Night.png?lqip'),
-    src: require('../../static/certificate/ABC_Crypto_Night.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
+    preSrc: require('../../public/static/certificate/ABC_Crypto_Night.png?lqip'),
+    src: require('../../public/static/certificate/ABC_Crypto_Night.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
   },
   {
-    preSrc: require('../../static/certificate/0x1Academy.jpg?lqip'),
-    src: require('../../static/certificate/0x1Academy.jpg?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
+    preSrc: require('../../public/static/certificate/0x1Academy.jpg?lqip'),
+    src: require('../../public/static/certificate/0x1Academy.jpg?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
   },
   {
-    preSrc: require('../../static/certificate/BASF.png?lqip'),
-    src: require('../../static/certificate/BASF.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
+    preSrc: require('../../public/static/certificate/BASF.png?lqip'),
+    src: require('../../public/static/certificate/BASF.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
   },
   {
-    preSrc: require('../../static/certificate/turing_scholarship.png?lqip'),
-    src: require('../../static/certificate/turing_scholarship.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
+    preSrc: require('../../public/static/certificate/turing_scholarship.png?lqip'),
+    src: require('../../public/static/certificate/turing_scholarship.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
   },
   {
-    preSrc: require('../../static/certificate/NTU_Pecu.png?lqip'),
-    src: require('../../static/certificate/NTU_Pecu.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
+    preSrc: require('../../public/static/certificate/NTU_Pecu.png?lqip'),
+    src: require('../../public/static/certificate/NTU_Pecu.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
   },
   {
-    preSrc: require('../../static/certificate/stanford.png?lqip'),
-    src: require('../../static/certificate/stanford.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
+    preSrc: require('../../public/static/certificate/stanford.png?lqip'),
+    src: require('../../public/static/certificate/stanford.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
   },
   {
-    preSrc: require('../../static/certificate/Berkeley.png?lqip'),
-    src: require('../../static/certificate/Berkeley.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
+    preSrc: require('../../public/static/certificate/Berkeley.png?lqip'),
+    src: require('../../public/static/certificate/Berkeley.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
   },
   {
-    preSrc: require('../../static/certificate/ROC_COC.png?lqip'),
-    src: require('../../static/certificate/ROC_COC.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
+    preSrc: require('../../public/static/certificate/ROC_COC.png?lqip'),
+    src: require('../../public/static/certificate/ROC_COC.png?resize&sizes[]=300&sizes[]=600&sizes[]=1336'),
   },
 ];
 

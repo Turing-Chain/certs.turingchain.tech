@@ -45,12 +45,12 @@ export const langsMap: { [key: string]: boolean } = {
 export const templateStyles = [
   {
     key: CertTemplate.Activity,
-    uri: require('./static/certificate/template/turingCertsPioneer.png?inline'),
+    uri: require('./public/static/certificate/template/turingCertsPioneer.png?inline'),
     name: 'eventCert',
   },
   {
     key: CertTemplate.Completion,
-    uri: require('./static/certificate/template/turingScholarship.jpg?inline'),
+    uri: require('./public/static/certificate/template/turingScholarship.jpg?inline'),
     name: 'completeCert',
   },
 ];

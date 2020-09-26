@@ -113,7 +113,7 @@ const Home: FC<{ id: string }> = ({ id }) => {
         )} 2x, ${getRelativePath('/static/bg/bg-home-cover-right@3x.png')} 3x`}
       />
       <ScrollAnimation animateIn="fadeInUp">
-        <Logo src={require('../../static/logo/logo-new.svg')} />
+        <Logo src={require('../../public/static/logo/logo-new.svg')} />
       </ScrollAnimation>
       <TitleWrapper animateIn="fadeInUp" delay={400} offset={0}>
         <Title>
@@ -135,8 +135,8 @@ const Home: FC<{ id: string }> = ({ id }) => {
         <CNText>{t('home.mobileSubTitle')}</CNText>
       </MobileTitleWrapper>
       <BottomLogoWrapper animateIn="fadeInUp" delay={600} offset={0}>
-        <SubLogo src={require('../../static/partners/Berkeley.png')} />
-        <SubLogo src={require('../../static/partners/Scet_white.png')} />
+        <SubLogo src={require('../../public/static/partners/Berkeley.png')} />
+        <SubLogo src={require('../../public/static/partners/Scet_white.png')} />
       </BottomLogoWrapper>
       <ScrollInfo />
     </Section>
