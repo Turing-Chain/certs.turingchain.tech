@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "plugins": [{ "name": "typescript-tslint-plugin" }],
+    "plugins": [
+      {
+        "name": "typescript-tslint-plugin"
+      }
+    ],
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
@@ -24,6 +28,12 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "experimentalDecorators": true,
-    "outDir": "build"
-  }
+    "outDir": "build",
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }
