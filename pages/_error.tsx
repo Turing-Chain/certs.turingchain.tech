@@ -1,4 +1,4 @@
-import { NextFC } from 'next';
+import { NextComponentType } from 'next';
 import HomeLayout from '@/layouts/Home';
 import Home from '@/components/home/Home';
 import Service from '@/components/home/Service';
@@ -11,7 +11,7 @@ import Examples from '@/components/home/Examples';
 
 import { SITE_TITLE, i18nNamespace } from '@/constants';
 
-const ErrorPage: NextFC = () => {
+const ErrorPage: NextComponentType = () => {
   return (
     <HomeLayout title={'TuringCerts | ' + SITE_TITLE}>
       <Home id="section-home" />

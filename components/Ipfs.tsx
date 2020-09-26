@@ -1,5 +1,5 @@
-import { NextFC } from 'next';
-import React, { useState, useEffect } from "react";
+import { NextComponentType } from 'next';
+import React, { useState, useEffect } from 'react';
 
 import styled from 'styled-components';
 import { getRelativePath } from '@/utils';
@@ -14,36 +14,39 @@ let Root = styled.div`
   width: 100%;
   height: 100vh;
   background: $fafafa;
-`
+`;
 
-const Ipfs: NextFC = () => {
-  const [date, setDate] = useState("-");
-  const [issuerName, setIssuerName] = useState("-");
-  const [type, setType] = useState("-");
-  const [holderName, setHolderName] = useState("-");
-  const [holderEmail, setEmail] = useState("-");
-  const [IPFS, setIPFS] = useState("-");
-  const [IOTA, setIOTA] = useState("-");
-  const [issuerWebsite, setIssuerWebsite] = useState("-");
+const Ipfs: NextComponentType = () => {
+  const [date, setDate] = useState('-');
+  const [issuerName, setIssuerName] = useState('-');
+  const [type, setType] = useState('-');
+  const [holderName, setHolderName] = useState('-');
+  const [holderEmail, setEmail] = useState('-');
+  const [IPFS, setIPFS] = useState('-');
+  const [IOTA, setIOTA] = useState('-');
+  const [issuerWebsite, setIssuerWebsite] = useState('-');
   const [zoomLevel, setZoomLevel] = useState(0.7);
   const [width, setWidth] = useState(1920);
   const [height, setHeight] = useState(1170);
-  const [holderId, setHolderId] = useState("-");
-  const [issuerId, setIssuerId] = useState("-");
+  const [holderId, setHolderId] = useState('-');
+  const [issuerId, setIssuerId] = useState('-');
 
   useEffect(() => {
     if (window.innerWidth > 800)
-      setZoomLevel(Math.min(window.innerWidth / 1920, window.innerHeight / 1170))
-    else
-      setZoomLevel(window.innerWidth / 480)
+      setZoomLevel(
+        Math.min(window.innerWidth / 1920, window.innerHeight / 1170),
+      );
+    else setZoomLevel(window.innerWidth / 480);
 
     async function fetchCertsAPI() {
       const value = queryString.parse(window.location.search);
       const hash = value.hash;
-      (hash);
-      await fetch(`https://x1certificate-aqkcbxdduq-uc.a.run.app/v1/view/certs?ipfs=${hash}`)
+      hash;
+      await fetch(
+        `https://x1certificate-aqkcbxdduq-uc.a.run.app/v1/view/certs?ipfs=${hash}`,
+      )
         .then(res => res.json())
-        .then((returnData) => {
+        .then(returnData => {
           setDate(timeConverter(returnData.content.timestamp));
           setIssuerName(returnData.content.issuerName);
           setType(returnData.content.type);
@@ -55,33 +58,32 @@ const Ipfs: NextFC = () => {
           setHolderId(returnData.content.holder);
           setIssuerId(returnData.content.issuer);
         })
-        .catch(console.log)
-    };
+        .catch(console.log);
+    }
     fetchCertsAPI();
 
     function handleResize() {
-      setWidth(window.innerWidth)
-      setHeight(window.innerHeight)
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
       if (window.innerWidth > 800)
-        setZoomLevel(Math.min(window.innerWidth / 1920, window.innerHeight / 1170))
-      else
-        setZoomLevel(window.innerWidth / 480)
+        setZoomLevel(
+          Math.min(window.innerWidth / 1920, window.innerHeight / 1170),
+        );
+      else setZoomLevel(window.innerWidth / 480);
     }
 
-    window.addEventListener('resize', handleResize)
-
+    window.addEventListener('resize', handleResize);
   }, []);
 
-  let RootStyle
+  let RootStyle;
   if (width > 800) {
     RootStyle = {
-      zoom: zoomLevel
-    }
-  }
-  else {
+      zoom: zoomLevel,
+    };
+  } else {
     RootStyle = {
-      zoom: width / 480
-    }
+      zoom: width / 480,
+    };
   }
   return (
     <Root style={RootStyle}>
@@ -93,7 +95,8 @@ const Ipfs: NextFC = () => {
           href={getRelativePath('/static/css/ipfs.css')}
         />
       </Head>
-      <Side date={date}
+      <Side
+        date={date}
         issuerName={issuerName}
         type={type}
         holderName={holderName}
@@ -102,11 +105,11 @@ const Ipfs: NextFC = () => {
         iota={IOTA}
         issuerWebsite={issuerWebsite}
         issuerId={issuerId}
-        holderId={holderId} />
+        holderId={holderId}
+      />
       <Certificate ipfs={IPFS} />
-    </Root >
-  )
-
-}
+    </Root>
+  );
+};
 
 export default Ipfs;

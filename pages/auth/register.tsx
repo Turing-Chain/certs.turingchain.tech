@@ -1,10 +1,10 @@
-import { NextFC } from 'next';
+import { NextComponentType } from 'next';
 
 import { i18nNamespace } from '@/constants';
 import AuthLayout from '@/layouts/Auth';
 import Register from '@/components/auth/Register';
 
-const RegisterPage: NextFC = () => {
+const RegisterPage: NextComponentType = () => {
   return (
     <AuthLayout>
       <Register />

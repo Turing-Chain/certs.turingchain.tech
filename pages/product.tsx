@@ -1,4 +1,4 @@
-import { NextFC } from 'next';
+import { NextComponentType } from 'next';
 import ProductLayout from '@/layouts/Product';
 import { i18nNamespace } from '@/constants';
 import { useTranslation } from 'react-i18next';
@@ -18,7 +18,7 @@ import queryString from 'query-string';
 import { preparedUser } from '@/utils/user';
 import { Router } from '@/i18n';
 
-const ProductPage: NextFC = () => {
+const ProductPage: NextComponentType = () => {
   const { user } = useContext(UserContext);
   const { updateUser } = useContext(UserContext);
   const { updateCerts } = useContext(CertsContext);
